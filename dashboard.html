@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | SIEM Login Lab</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="layout topbar-inner">
+      <a class="brand" href="./index.html">
+        <span class="brand-mark">S</span>
+        <span>SIEM Login Lab</span>
+      </a>
+      <div class="nav-actions">
+        <button class="btn btn-secondary" id="sendTestEvent">إرسال حدث تجريبي</button>
+        <button class="btn btn-primary" id="logoutBtn">تسجيل خروج</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout dashboard">
+    <div class="dashboard-card">
+      <div class="card-header">
+        <div>
+          <small>Security Monitoring</small>
+          <h1 style="font-size:2rem;color:#fff;margin:.2rem 0 0">لوحة المراقبة</h1>
+        </div>
+        <span class="status-pill"><span class="status-dot"></span> Session Active</span>
+      </div>
+
+      <div class="card-body">
+        <p class="lead">هذه الصفحة تولّد audit events عند الفتح، عند الضغط على زر حدث تجريبي، وعند تسجيل الخروج.</p>
+
+        <div class="dashboard-grid">
+          <div class="metric"><small>Auth Events</small><strong id="authCount">0</strong></div>
+          <div class="metric"><small>Audit Events</small><strong id="auditCount">0</strong></div>
+          <div class="metric"><small>Alerts</small><strong id="alertCount">0</strong></div>
+        </div>
+
+        <div class="warning-box">
+          تنبيه: هذه لوحة أمامية تجريبية. القرار الأمني الحقيقي يجب أن يكون في Cloudflare Worker أو SIEM، وليس داخل المتصفح.
+        </div>
+
+        <div class="audit-box" id="localAudit"></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>

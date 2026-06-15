@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SIEM Login Lab</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="layout topbar-inner">
+      <a class="brand" href="./index.html">
+        <span class="brand-mark">S</span>
+        <span>SIEM Login Lab</span>
+      </a>
+      <div class="nav-actions">
+        <a class="btn btn-secondary" href="./dashboard.html">لوحة المراقبة</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout hero">
+    <section class="hero-copy">
+      <div class="badge">GitHub Pages + Cloudflare Worker + Audit Logs</div>
+      <h1>نموذج تسجيل دخول مع مراقبة أمنية</h1>
+      <p class="lead">
+        هذه نسخة تعليمية تسجل محاولات الدخول، الخروج، فتح الصفحات، والأحداث المشبوهة ثم ترسلها للـ backend ليحوّلها لاحقًا إلى SIEM مثل Wazuh أو Elastic.
+      </p>
+
+      <div class="hero-grid">
+        <div class="info-card">
+          <strong>Audit Trail</strong>
+          <span>تسجيل كل محاولة دخول وخروج وتفاعل حساس.</span>
+        </div>
+        <div class="info-card">
+          <strong>Detection Rules</strong>
+          <span>تنبيه عند تكرار فشل الدخول أو User-Agent مشبوه.</span>
+        </div>
+        <div class="info-card">
+          <strong>Safe Forwarding</strong>
+          <span>لا نضع مفاتيح SIEM داخل JavaScript.</span>
+        </div>
+        <div class="info-card">
+          <strong>Free Stack</strong>
+          <span>واجهة static وWorker مجاني للتجربة.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="auth-panel">
+      <div class="login-card">
+        <div class="card-header">
+          <div>
+            <small>Access Gateway</small>
+            <h2 style="margin:.2rem 0 0;font-size:1.4rem">تسجيل الدخول</h2>
+          </div>
+          <span class="status-pill"><span class="status-dot"></span> مراقبة فعالة</span>
+        </div>
+
+        <form class="card-body" id="loginForm">
+          <div class="field">
+            <label for="username">اسم المستخدم</label>
+            <input class="input" id="username" name="username" autocomplete="username" required placeholder="مثال: admin" />
+          </div>
+
+          <div class="field">
+            <label for="password">كلمة المرور</label>
+            <input class="input" id="password" name="password" type="password" autocomplete="current-password" required placeholder="••••••••" />
+          </div>
+
+          <button class="btn btn-primary btn-full" id="loginBtn" type="submit">دخول</button>
+          <div class="message" id="message"></div>
+
+          <div class="hint">
+            بيانات تجربة مقترحة بعد ضبط Worker:
+            <br />
+            <b>admin</b> / <b>ChangeMe123!</b>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
