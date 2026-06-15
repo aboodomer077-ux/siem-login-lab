@@ -2,7 +2,7 @@
  * Frontend for GitHub Pages.
  * Replace API_BASE with your Cloudflare Worker URL after deployment.
  */
-const API_BASE = "https://siem-login-worker.abdullahaljuaid51.workers.dev";
+const API_BASE = "https://noisy-sun-fec0.aboodomer077.workers.dev/";
 
 const storage = {
   get token() {
